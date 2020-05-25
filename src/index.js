@@ -92,20 +92,12 @@ export {
  */
 
 /**
- * @callback PanoDataProvider
- * @summary Function to compute panorama data once the image is loaded
- * @memberOf PSV
- * @param {Image} image - loaded image
- * @returns {PSV.PanoData} computed panorama data
- */
-
-/**
  * @typedef {PSV.AnimateOptions} PSV.PanoramaOptions
  * @summary Object defining panorama and animation options
  * @property {boolean|number} [transition=1500] - duration of the transition between all and new panorama
  * @property {boolean} [showLoader=true] - show the loader
  * @property {PSV.SphereCorrection} [sphereCorrection] - new sphere correction to apply to the panorama
- * @property {PSV.PanoData | PSV.PanoDataProvider} [panoData] - new panorama data used for this panorama
+ * @property {PSV.PanoData} [panoData] - new panorama data used for this panorama
  */
 
 /**

@@ -3,9 +3,8 @@ import { each } from './utils';
 
 /**
  * @callback OnTick
- * @summary Function called for each animation frame with computed properties
  * @memberOf PSV.Animation
- * @param {Object.<string, number>} properties - current values
+ * @param {Object[]} properties - current values
  * @param {float} progress - 0 to 1
  */
 
@@ -28,7 +27,7 @@ export class Animation {
 
   /**
    * @param {Object} options
-   * @param {Object.<string, Object>} options.properties
+   * @param {Object[]} options.properties
    * @param {number} options.properties[].start
    * @param {number} options.properties[].end
    * @param {number} options.duration

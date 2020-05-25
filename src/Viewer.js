@@ -48,13 +48,14 @@ export class Viewer extends EventEmitter {
 
     SYSTEM.load();
 
+    // must support canvas
+    if (!SYSTEM.isCanvasSupported) {
+      throw new PSVError('Canvas is not supported.');
+    }
+
     // must support WebGL
     if (!SYSTEM.isWebGLSupported) {
       throw new PSVError('WebGL is not supported.');
-    }
-
-    if (SYSTEM.maxCanvasWidth === 0 || SYSTEM.maxTextureWidth === 0) {
-      throw new PSVError('Unable to detect system capabilities');
     }
 
     /**
@@ -337,7 +338,7 @@ export class Viewer extends EventEmitter {
    * @returns {PSV.plugins.AbstractPlugin}
    */
   getPlugin(pluginId) {
-    return pluginId ? this.plugins[typeof pluginId === 'function' ? pluginId.id : pluginId] : null;
+    return this.plugins[typeof pluginId === 'function' ? pluginId.id : pluginId];
   }
 
   /**
@@ -433,7 +434,7 @@ export class Viewer extends EventEmitter {
       this.textureLoader.abortLoading();
     }
 
-    if (!this.prop.ready) {
+    if (!this.prop.isReady) {
       if (!('longitude' in options) && !this.prop.isCubemap) {
         options.longitude = this.config.defaultLong;
       }

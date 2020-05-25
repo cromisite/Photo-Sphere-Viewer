@@ -1,5 +1,5 @@
 import { AbstractPlugin, CONSTANTS, DEFAULTS, PSVError, registerButton, utils } from 'photo-sphere-viewer';
-import GyroscopePlugin from 'photo-sphere-viewer/dist/plugins/gyroscope';
+import GyroscopePlugin from 'photo-sphere-viewer/plugins/gyroscope';
 import * as THREE from 'three';
 import 'three/examples/js/effects/StereoEffect';
 import mobileRotateIcon from './mobile-rotate.svg';
@@ -67,7 +67,7 @@ export default class StereoPlugin extends AbstractPlugin {
     this.gyroscope = GyroscopePlugin ? psv.getPlugin(GyroscopePlugin) : null;
 
     if (!this.gyroscope) {
-      throw new PSVError('Stereo plugin requires the Gyroscope plugin');
+      throw new PSVError('Stereo plugin requires the gyroscope plugin');
     }
 
     /**
