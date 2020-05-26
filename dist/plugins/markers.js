@@ -1593,7 +1593,7 @@
     ;
 
     _proto.__isMarkerVisible = function __isMarkerVisible(marker, position) {
-      return marker.props.positions3D[0].dot(this.psv.prop.direction) > 0 && position.x + marker.props.width >= 0 && position.x - marker.props.width <= this.psv.prop.size.width && position.y + marker.props.height >= 0 && position.y - marker.props.height <= this.psv.prop.size.height;
+      return marker.props.positions3D[0].dot(this.psv.prop.direction) > 0 && position.x + marker.props.width >= 0 && position.x - marker.props.width <= this.psv.prop.size.width && position.y + marker.props.height + 500 >= 0 && position.y - marker.props.height <= this.psv.prop.size.height;
     }
     /**
      * @summary Computes the real size of a marker
